@@ -632,7 +632,8 @@ def trajectory_animation(signal, speed=1, seg_length=-1, show_hand=False):
     else:
         raise ValueError('Wong signal: %s.' % signal.__class__)
 
-    matplotlib.interactive(True)
+    # matplotlib.interactive(True)
+    plt.ion()
     
     fig = plt.figure()
 
@@ -698,7 +699,8 @@ def trajectory_animation(signal, speed=1, seg_length=-1, show_hand=False):
             if speed < 1:
                 plt.pause(0.02 / speed)
     
-    matplotlib.interactive(False)
+    # matplotlib.interactive(False)
+    plt.ioff()
     
     
 
@@ -744,7 +746,8 @@ def orientation_animation(signal, speed=1, seg_length=-1):
     else:
         raise ValueError('Wong signal: %s.' % signal.__class__)
 
-    matplotlib.interactive(True)
+    # matplotlib.interactive(True)
+    plt.ion()
     
     fig = plt.figure(figsize=(8, 8))
 
@@ -806,7 +809,8 @@ def orientation_animation(signal, speed=1, seg_length=-1):
             if speed < 1:
                 plt.pause(0.02 / speed)
     
-    matplotlib.interactive(False)
+    # matplotlib.interactive(False)
+    plt.ioff()
     
     ax.plot(ox, oy, oz, color='k', markersize=0.1)
     
