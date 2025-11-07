@@ -1,36 +1,28 @@
-# Start from an official Python 3.6.9 image.
-# This image is based on an older Debian (Buster),
-# where 3.6.9 and its packages work perfectly.
-FROM python:3.6.9-slim-buster
+# Start from an official Python 3.11 image.
+FROM python:3.11-slim
 
 # Set a working directory inside the container
 WORKDIR /app
 
-# Install your packages
-# This command first points apt to the EOL archive,
-# then updates and installs vim.
-RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
-    sed -i '/buster-updates/d' /etc/apt/sources.list && \
-    apt-get update  -y && \
+# Install system packages
+RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apt-get dist-upgrade -y && \
-    apt-get -y autoremove && \
-    apt-get clean
-RUN apt-get install -y p7zip \
+    apt-get install -y p7zip \
     p7zip-full \
-    unace \
     zip \
     unzip \
     xz-utils \
-    sharutils \
-    uudeview \
-    mpack \
-    arj \
-    cabextract \
-    file-roller \
-    && rm -rf /var/lib/apt/lists/*
-RUN pip install numpy==1.19.5 matplotlib==3.1.2 jupyter
+    && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Python packages compatible with Python 3.11
+RUN pip install --no-cache-dir \
+    numpy>=1.24,<3 \
+    matplotlib>=3.7 \
+    pandas>=2.0 \
+    scikit-learn>=1.3 \
+    scipy>=1.11 \
+    jupyter
 
 EXPOSE 8888
 

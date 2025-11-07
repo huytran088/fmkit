@@ -743,8 +743,8 @@ class Quaternion(object):
         '''
         
         if not isinstance(q, Quaternion):
-            
-            raise 'Can not multiply non-quaternion! q=%s' % repr(q)
+
+            raise TypeError('Can not multiply non-quaternion! q=%s' % repr(q))
         
         
         pw = self.w
