@@ -356,7 +356,8 @@ def normalize_warping_path_a2to1(a2to1_start, a2to1_end, n=100):
     if not isinstance(a2to1_start, np.ndarray) \
         or not isinstance(a2to1_end, np.ndarray) \
         or len(a2to1_start.shape) != 1 or len(a2to1_end.shape) != 1 \
-        or a2to1_start.dtype != np.int or a2to1_end.dtype != np.int:
+        or not np.issubdtype(a2to1_start.dtype, np.integer) \
+        or not np.issubdtype(a2to1_end.dtype, np.integer):
 
         raise ValueError('Input series must be two 1D NumPy arrays!')
 
@@ -401,7 +402,8 @@ def warping_path_to_xy_sequences(a2to1_start, a2to1_end):
     if not isinstance(a2to1_start, np.ndarray) \
         or not isinstance(a2to1_end, np.ndarray) \
         or len(a2to1_start.shape) != 1 or len(a2to1_end.shape) != 1 \
-        or a2to1_start.dtype != np.int or a2to1_end.dtype != np.int:
+        or not np.issubdtype(a2to1_start.dtype, np.integer) \
+        or not np.issubdtype(a2to1_end.dtype, np.integer):
 
         raise ValueError('Input series must be two 1D NumPy arrays!')
 
