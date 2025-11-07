@@ -19,9 +19,14 @@ The FMKit library contains a set of Python code and scripts to model and process
 
 The FMKit code library requires the following software packages
 
-* Python 3 (tested with Python 3.6.9)
-* NumPy (tested with NumPy 1.19.5)
-* Matplotlib (tested with Matplotlib 3.1.2)
+* Python 3.11 or higher
+* NumPy 1.24 or higher (< 3.0)
+* Matplotlib 3.7 or higher
+* pandas 2.0 or higher
+* scikit-learn 1.3 or higher
+* scipy 1.11 or higher
+
+**Note:** This library was originally tested with Python 3.6.9, NumPy 1.19.5, and Matplotlib 3.1.2, but has been updated for Python 3.11 compatibility.
 
 To use this code library, please download the Python modules under the "code_fmkit" folder and incorporate them into your project. Please also check the [user manual](https://duolu-fmkit.github.io/manual_signal/).
 

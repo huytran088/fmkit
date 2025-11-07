@@ -1,5 +1,5 @@
 
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
 module = Extension('fmkit_utilities', ['fmkit_utilities.c'])
 
