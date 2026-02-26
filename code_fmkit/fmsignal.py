@@ -42,8 +42,8 @@ import csv
 import math
 
 import numpy as np
-#import scipy.stats
-#import scipy.signal
+import scipy.stats
+import scipy.signal
 
 from pyrotation import Quaternion
 from pyrotation import euler_zyx_to_rotation_matrix
