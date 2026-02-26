@@ -43,7 +43,7 @@ import math
 
 import numpy as np
 import scipy.stats
-import scipy.signal
+import scipy.signal.windows
 
 from pyrotation import Quaternion
 from pyrotation import euler_zyx_to_rotation_matrix
@@ -1000,7 +1000,7 @@ class FMSignal(object):
 
         
 
-        pertubation = scipy.signal.gaussian(s_window * 2, sigma) * scale
+        pertubation = scipy.signal.windows.gaussian(s_window * 2, sigma) * scale
 
         # Calculate the start indices.
         s_data = time - s_window
@@ -1062,7 +1062,7 @@ class FMSignal(object):
         pertube_seg = np.ones(pertube_size, dtype=np.float32) * scale
 
         # NOTE: The peak of this Gaussian series is 1.
-        smooth_edges = scipy.signal.gaussian(s_window * 2, sigma)
+        smooth_edges = scipy.signal.windows.gaussian(s_window * 2, sigma)
         se_left = smooth_edges[:s_window]
         se_right = smooth_edges[s_window:]
 
