@@ -717,8 +717,8 @@ class FMSignal(object):
 
         """
 
-        signal = FMSignal(self.length, self.dim, self.data.copy(), 
-            self.ts.copy(), self.user, self.cid, self.seq)
+        signal = FMSignal(self.length, self.dim, self.ts.copy(), 
+            self.data.copy(), self.user, self.cid, self.seq)
 
         return signal
 
